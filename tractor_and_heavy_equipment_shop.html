@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroTractor & Maquinaria - Venta, Servicio y Repuestos</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fffbebe',
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                        },
+                        industrial: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-industrial-950 text-slate-300 text-xs sm:text-sm py-2 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-6">
+                <a href="tel:+18005550199" class="hover:text-brand-500 transition flex items-center gap-2">
+                    <i class="fas fa-phone text-brand-500"></i> +1 (800) 555-0199
+                </a>
+                <span class="hidden sm:inline text-slate-600">|</span>
+                <a href="mailto:contacto@agrotractor.com" class="hover:text-brand-500 transition flex items-center gap-2">
+                    <i class="fas fa-envelope text-brand-500"></i> contacto@agrotractor.com
+                </a>
+                <span class="hidden md:inline text-slate-600">|</span>
+                <span class="hidden md:flex items-center gap-2 text-slate-400">
+                    <i class="fas fa-clock text-brand-500"></i> Lun - Vie: 7:30 AM - 5:30 PM
+                </span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-xs bg-brand-500/10 text-brand-500 font-semibold px-2.5 py-0.5 rounded-full border border-brand-500/20">
+                    <i class="fas fa-map-marker-alt mr-1"></i> Sucursal Principal & Taller Central
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav class="sticky top-0 z-40 bg-industrial-900 border-b border-slate-800 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand / Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="bg-brand-500 p-2.5 rounded-xl group-hover:bg-brand-600 transition shadow-lg shadow-brand-500/20">
+                        <i class="fas fa-tractor text-industrial-950 text-2xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-black tracking-wider text-white uppercase flex items-center gap-1">
+                            AGRO<span class="text-brand-500">TRACTOR</span>
+                        </span>
+                        <span class="text-xs text-slate-400 tracking-widest uppercase font-medium">Tractores & Maquinaria</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Menu -->
+                <div class="hidden lg:flex items-center space-x-1">
+                    <a href="#inicio" class="text-white hover:text-brand-500 px-3 py-2 text-sm font-semibold transition">Inicio</a>
+                    <a href="#inventario" class="text-slate-300 hover:text-brand-500 px-3 py-2 text-sm font-semibold transition">Equipos en Venta</a>
+                    <a href="#servicios" class="text-slate-300 hover:text-brand-500 px-3 py-2 text-sm font-semibold transition">Servicios Taller</a>
+                    <a href="#nosotros" class="text-slate-300 hover:text-brand-500 px-3 py-2 text-sm font-semibold transition">Nosotros</a>
+                    <a href="#blog" class="text-slate-300 hover:text-brand-500 px-3 py-2 text-sm font-semibold transition">Consejos & Blog</a>
+                    <a href="#contacto" class="text-slate-300 hover:text-brand-500 px-3 py-2 text-sm font-semibold transition">Contacto</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden lg:flex items-center">
+                    <a href="#contacto" class="bg-brand-500 hover:bg-brand-600 text-industrial-950 font-bold px-5 py-2.5 rounded-lg text-sm transition shadow-md flex items-center gap-2">
+                        <i class="fas fa-wrench"></i> Solicitar Servicio
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Toggle Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-slate-300 hover:text-white p-2 rounded-lg focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-industrial-950 border-b border-slate-800 px-4 pt-2 pb-6 space-y-2">
+            <a href="#inicio" class="mobile-link block text-white hover:bg-slate-800 px-3 py-2 rounded-md font-semibold">Inicio</a>
+            <a href="#inventario" class="mobile-link block text-slate-300 hover:bg-slate-800 px-3 py-2 rounded-md font-semibold">Equipos en Venta</a>
+            <a href="#servicios" class="mobile-link block text-slate-300 hover:bg-slate-800 px-3 py-2 rounded-md font-semibold">Servicios Taller</a>
+            <a href="#nosotros" class="mobile-link block text-slate-300 hover:bg-slate-800 px-3 py-2 rounded-md font-semibold">Nosotros</a>
+            <a href="#blog" class="mobile-link block text-slate-300 hover:bg-slate-800 px-3 py-2 rounded-md font-semibold">Blog</a>
+            <a href="#contacto" class="mobile-link block text-slate-300 hover:bg-slate-800 px-3 py-2 rounded-md font-semibold">Contacto</a>
+            <a href="#contacto" class="mobile-link block bg-brand-500 text-industrial-950 text-center font-bold py-2.5 rounded-md mt-4">Cotizar o Solicitar Taller</a>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section id="inicio" class="relative bg-industrial-900 text-white min-h-[580px] flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1592838064575-70ed626d3a0e?auto=format&fit=crop&w=1920&q=80');">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-12">
+            <div class="max-w-2xl">
+                <span class="inline-block bg-brand-500/20 text-brand-500 text-xs sm:text-sm font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full border border-brand-500/30 mb-4">
+                    <i class="fas fa-check-circle mr-1"></i> Líderes en Equipamiento Agrícola
+                </span>
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+                    Venta y Reparación de <span class="text-brand-500">Maquinaria Agrícola</span> e Industrial
+                </h1>
+                <p class="text-slate-300 text-base sm:text-lg mb-8 leading-relaxed">
+                    Especialistas en venta de tractores nuevos y usados garantizados, servicio mecánico especializado, diagnóstico en campo y provisión de repuestos originales.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#inventario" class="bg-brand-500 hover:bg-brand-600 text-industrial-950 text-base font-extrabold px-7 py-3.5 rounded-xl transition shadow-lg shadow-brand-500/20 text-center flex items-center justify-center gap-2">
+                        <i class="fas fa-th-list"></i> Ver Equipos Disponibles
+                    </a>
+                    <a href="#contacto" class="bg-slate-800 hover:bg-slate-700 text-white border border-slate-600 text-base font-bold px-7 py-3.5 rounded-xl transition text-center flex items-center justify-center gap-2">
+                        <i class="fas fa-tools"></i> Agendar Diagnóstico
+                    </a>
+                </div>
+            </div>
+
+            <!-- Floating Quick Stats / Info Badge -->
+            <div class="w-full md:w-auto grid grid-cols-2 gap-4 max-w-md">
+                <div class="bg-slate-900/80 backdrop-blur-md p-5 rounded-2xl border border-slate-700 text-center">
+                    <div class="text-brand-500 text-3xl font-black mb-1">25+</div>
+                    <div class="text-slate-300 text-xs sm:text-sm font-medium">Años de Experiencia en el Sector</div>
+                </div>
+                <div class="bg-slate-900/80 backdrop-blur-md p-5 rounded-2xl border border-slate-700 text-center">
+                    <div class="text-brand-500 text-3xl font-black mb-1">100%</div>
+                    <div class="text-slate-300 text-xs sm:text-sm font-medium">Garantía en Reparaciones</div>
+                </div>
+                <div class="bg-slate-900/80 backdrop-blur-md p-5 rounded-2xl border border-slate-700 text-center col-span-2">
+                    <div class="flex items-center justify-center gap-3 text-brand-500 text-xl font-bold mb-1">
+                        <i class="fas fa-truck-pickup"></i>
+                        <span>Asistencia en Campo</span>
+                    </div>
+                    <div class="text-slate-300 text-xs sm:text-sm">Unidades móviles de taller directamente a tu terreno.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-20 bg-slate-100 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs uppercase tracking-widest text-brand-600 font-extrabold mb-2">Servicios Integrales</h2>
+                <p class="text-3xl sm:text-4xl font-black text-slate-900">Soluciones Completas para Tu Maquinaria</p>
+                <div class="w-20 h-1.5 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-500/10 text-brand-600 rounded-xl flex items-center justify-center text-2xl font-bold mb-6">
+                            <i class="fas fa-oil-can"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Reparación y Mantenimiento</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Mantenimiento preventivo, overhaul de motores diésel, reparación de transmisiones, sistemas hidráulicos y diagnóstico electrónico especializado.
+                        </p>
+                    </div>
+                    <a href="#contacto" class="text-brand-600 font-bold text-sm inline-flex items-center hover:gap-2 transition-all">
+                        Solicitar mantenimiento <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-500/10 text-brand-600 rounded-xl flex items-center justify-center text-2xl font-bold mb-6">
+                            <i class="fas fa-tractor"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Venta de Equipos Nuevos y Usados</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Amplia selección de tractores, cosechadoras e implementos inspeccionados exhaustivamente por nuestros mecánicos certificados.
+                        </p>
+                    </div>
+                    <a href="#inventario" class="text-brand-600 font-bold text-sm inline-flex items-center hover:gap-2 transition-all">
+                        Explorar catálogo <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-500/10 text-brand-600 rounded-xl flex items-center justify-center text-2xl font-bold mb-6">
+                            <i class="fas fa-truck-ramp-box"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Transporte y Traslado Pesado</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Contamos con remolques de cama baja para transportar tu equipo pesado desde tu finca o propiedad directamente a nuestras instalaciones.
+                        </p>
+                    </div>
+                    <a href="#contacto" class="text-brand-600 font-bold text-sm inline-flex items-center hover:gap-2 transition-all">
+                        Cotizar flete <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment Catalog / Inventory -->
+    <section id="inventario" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <h2 class="text-xs uppercase tracking-widest text-brand-600 font-extrabold mb-2">Catálogo Disponible</h2>
+                    <p class="text-3xl sm:text-4xl font-black text-slate-900">Inventario de Equipos y Maquinarias</p>
+                </div>
+                <!-- Filter Buttons -->
+                <div id="filter-buttons" class="flex flex-wrap gap-2">
+                    <button data-filter="all" class="filter-btn bg-industrial-900 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-lg transition">Todos</button>
+                    <button data-filter="tractores" class="filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs sm:text-sm px-4 py-2 rounded-lg transition">Tractores</button>
+                    <button data-filter="cosechadoras" class="filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs sm:text-sm px-4 py-2 rounded-lg transition">Cosechadoras</button>
+                    <button data-filter="implementos" class="filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs sm:text-sm px-4 py-2 rounded-lg transition">Implementos</button>
+                    <button data-filter="proximamente" class="filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs sm:text-sm px-4 py-2 rounded-lg transition">En Llegada</button>
+                </div>
+            </div>
+
+            <!-- Equipment Grid -->
+            <div id="equipment-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Javascript will dynamically render inventory items here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Mission & Trust Badges -->
+    <section id="nosotros" class="py-20 bg-industrial-900 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-brand-500 font-extrabold text-xs uppercase tracking-widest">Sobre Nuestra Empresa</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2 mb-6">Tu Socio de Confianza en el Campo Agrícola e Industrial</h2>
+                    <p class="text-slate-300 text-base leading-relaxed mb-6">
+                        Inspirados en la tradición de servicio técnico de excelencia, nos dedicamos a mantener la productividad agrícola al máximo. Entendemos que cada hora que un tractor está detenido representa pérdidas para el productor.
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-brand-500/20 text-brand-500 p-2.5 rounded-lg border border-brand-500/30">
+                                <i class="fas fa-shield-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Inspección de 50 Puntos</h4>
+                                <p class="text-slate-400 text-sm">Cada máquina usada pasa por una rigurosa revisión mecánica antes de ser puesta en venta.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="bg-brand-500/20 text-brand-500 p-2.5 rounded-lg border border-brand-500/30">
+                                <i class="fas fa-cogs text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Repuestos de Fábrica</h4>
+                                <p class="text-slate-400 text-sm">Contamos con amplio stock de componentes hidráulicos, filtros, correas y piezas de recambio.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contacto" class="inline-block bg-brand-500 hover:bg-brand-600 text-industrial-950 font-bold px-6 py-3 rounded-xl transition">
+                        Conoce Nuestro Taller
+                    </a>
+                </div>
+
+                <!-- Graphic Banner / Image collage -->
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1530267981375-f0de937f5f13?auto=format&fit=crop&w=800&q=80" alt="Taller mecánico de tractores" class="rounded-2xl shadow-2xl border border-slate-700 w-full object-cover h-[450px]">
+                    <div class="absolute -bottom-6 -left-6 bg-brand-500 text-industrial-950 p-6 rounded-2xl shadow-xl hidden sm:block max-w-xs">
+                        <div class="font-black text-2xl mb-1">Taller Móvil 24/7</div>
+                        <div class="text-xs font-semibold">Atendemos urgencias mecánicas directamente en tu rancho o terreno agrícola.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog & Advice Section -->
+    <section id="blog" class="py-20 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs uppercase tracking-widest text-brand-600 font-extrabold mb-2">Consejos Técnicos</h2>
+                <p class="text-3xl sm:text-4xl font-black text-slate-900">Blog & Recomendaciones de Mantenimiento</p>
+                <div class="w-20 h-1.5 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-md transition">
+                    <img src="https://images.unsplash.com/photo-1592838064575-70ed626d3a0e?auto=format&fit=crop&w=600&q=80" alt="Mantenimiento preventivo" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Mantenimiento</span>
+                        <h3 class="text-lg font-bold text-slate-900 mt-2 mb-3 hover:text-brand-600 transition">6 Señales clave para cambiar el aceite hidráulico de tu tractor</h3>
+                        <p class="text-slate-600 text-sm mb-4 line-clamp-3">Aprende a identificar la contaminación del fluido hidráulico y evita averías costosas en la bomba del sistema.</p>
+                        <a href="#contacto" class="text-slate-900 font-bold text-xs uppercase tracking-wider hover:text-brand-600">Leer más <i class="fas fa-chevron-right text-xs ml-1"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-md transition">
+                    <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80" alt="Guía de compra equipo usado" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Guía de Compra</span>
+                        <h3 class="text-lg font-bold text-slate-900 mt-2 mb-3 hover:text-brand-600 transition">Guía para evaluar un tractor usado antes de invertir</h3>
+                        <p class="text-slate-600 text-sm mb-4 line-clamp-3">Puntos críticos a revisar: horas de motor, historial de mantenimiento, holguras y fugas comunes.</p>
+                        <a href="#contacto" class="text-slate-900 font-bold text-xs uppercase tracking-wider hover:text-brand-600">Leer más <i class="fas fa-chevron-right text-xs ml-1"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-md transition">
+                    <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=600&q=80" alt="Preparación para temporada" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Temporada</span>
+                        <h3 class="text-lg font-bold text-slate-900 mt-2 mb-3 hover:text-brand-600 transition">Cómo preparar tu cosechadora antes de la siembra o cosecha</h3>
+                        <p class="text-slate-600 text-sm mb-4 line-clamp-3">Checklist completo para asegurar que toda tu maquinaria esté al 100% en las semanas de mayor trabajo.</p>
+                        <a href="#contacto" class="text-slate-900 font-bold text-xs uppercase tracking-wider hover:text-brand-600">Leer más <i class="fas fa-chevron-right text-xs ml-1"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Quote Form Section -->
+    <section id="contacto" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-brand-600 font-extrabold">Atención Personalizada</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2 mb-6">Ponte en Contacto o Solicita Presupuesto</h2>
+                    <p class="text-slate-600 text-base mb-8">
+                        ¿Buscas un equipo específico o necesitas agendar una revisión en taller? Completa el formulario y un especialista te responderá a la brevedad.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-slate-100 text-brand-600 rounded-xl flex items-center justify-center shrink-0">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Ubicación de Taller y Patio</h4>
+                                <p class="text-slate-600 text-sm">Carretera Industrial Km 14.5, Zona Agrícola Central</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-slate-100 text-brand-600 rounded-xl flex items-center justify-center shrink-0">
+                                <i class="fas fa-phone-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Central Telefónica y WhatsApp</h4>
+                                <p class="text-slate-600 text-sm">+1 (800) 555-0199 / +1 (555) 019-2831</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-slate-100 text-brand-600 rounded-xl flex items-center justify-center shrink-0">
+                                <i class="fas fa-clock text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Horarios de Atención</h4>
+                                <p class="text-slate-600 text-sm">Lunes a Viernes: 7:30 AM – 5:30 PM</p>
+                                <p class="text-slate-600 text-sm">Sábados: 8:00 AM – 1:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-sm">
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)">
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Nombre Completo</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm" placeholder="Ej. Juan Pérez">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Teléfono</label>
+                                    <input type="tel" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm" placeholder="+1 (555) 000-0000">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Correo Electrónico</label>
+                                    <input type="email" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm" placeholder="juan@ejemplo.com">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Tipo de Consulta</label>
+                                <select id="form-subject" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm">
+                                    <option>Cotización de Equipo en Venta</option>
+                                    <option>Servicio Técnico / Reparación en Taller</option>
+                                    <option>Diagnóstico y Asistencia en Campo</option>
+                                    <option>Consulta de Repuestos</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Mensaje o Detalles del Equipo</label>
+                                <textarea id="form-message" rows="4" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm" placeholder="Describe la marca, modelo o el servicio que necesitas..."></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-brand-500 hover:bg-brand-600 text-industrial-950 font-extrabold py-3.5 rounded-lg transition text-base shadow-md">
+                                Enviar Solicitud de Cotización
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!-- Form Success Alert -->
+                    <div id="form-success" class="hidden mt-4 p-4 bg-emerald-100 border border-emerald-300 text-emerald-800 rounded-lg text-sm text-center font-medium">
+                        <i class="fas fa-check-circle text-emerald-600 mr-2"></i> ¡Mensaje enviado con éxito! Nos comunicaremos contigo en breve.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-industrial-950 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-slate-800">
+                <!-- Col 1 -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="bg-brand-500 p-2 rounded-lg">
+                            <i class="fas fa-tractor text-industrial-950 text-xl"></i>
+                        </div>
+                        <span class="text-lg font-black text-white uppercase tracking-wider">
+                            AGRO<span class="text-brand-500">TRACTOR</span>
+                        </span>
+                    </div>
+                    <p class="text-sm text-slate-400 mb-4">
+                        Soluciones en maquinaria agrícola e industrial. Venta, soporte técnico y repuestos con garantía.
+                    </p>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">Navegación</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#inicio" class="hover:text-brand-500 transition">Inicio</a></li>
+                        <li><a href="#inventario" class="hover:text-brand-500 transition">Equipos en Venta</a></li>
+                        <li><a href="#servicios" class="hover:text-brand-500 transition">Servicios Mecánicos</a></li>
+                        <li><a href="#nosotros" class="hover:text-brand-500 transition">Nosotros</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">Servicios</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#contacto" class="hover:text-brand-500 transition">Overhaul de Motor</a></li>
+                        <li><a href="#contacto" class="hover:text-brand-500 transition">Sistemas Hidráulicos</a></li>
+                        <li><a href="#contacto" class="hover:text-brand-500 transition">Mantenimiento Preventivo</a></li>
+                        <li><a href="#contacto" class="hover:text-brand-500 transition">Flete de Maquinaria</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4 -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">Redes & Contacto</h4>
+                    <div class="flex space-x-3 mb-4">
+                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-brand-500 hover:text-industrial-950 rounded-lg flex items-center justify-center transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-brand-500 hover:text-industrial-950 rounded-lg flex items-center justify-center transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-brand-500 hover:text-industrial-950 rounded-lg flex items-center justify-center transition"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <p class="text-xs text-slate-400">Atención de consultas por WhatsApp 24/7 para emergencias en campo.</p>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 gap-4">
+                <p>&copy; 2026 AgroTractor & Heavy Equipment Shop. Todos los derechos reservados.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-slate-300">Términos de Servicio</a>
+                    <a href="#" class="hover:text-slate-300">Política de Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Equipment Detail Modal -->
+    <div id="equipment-modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-3xl w-full overflow-hidden shadow-2xl border border-slate-200 relative max-h-[90vh] flex flex-col">
+            <!-- Modal Header -->
+            <div class="bg-industrial-900 text-white p-5 flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <span id="modal-badge" class="bg-brand-500 text-industrial-950 text-xs font-black px-2.5 py-1 rounded-md uppercase">DISPONIBLE</span>
+                    <h3 id="modal-title" class="font-bold text-lg">Título del Equipo</h3>
+                </div>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-white p-1 rounded-lg">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content -->
+            <div class="p-6 overflow-y-auto space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <img id="modal-image" src="" alt="Equipo" class="w-full h-64 object-cover rounded-xl border border-slate-200">
+                    <div class="space-y-4">
+                        <div class="text-2xl font-black text-slate-900" id="modal-price">$0 USD</div>
+                        <p id="modal-description" class="text-slate-600 text-sm">Descripción del equipo...</p>
+                        
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-sm">
+                            <div class="flex justify-between"><span class="text-slate-500 font-medium">Potencia (HP):</span> <span id="modal-hp" class="font-bold text-slate-800">--</span></div>
+                            <div class="flex justify-between"><span class="text-slate-500 font-medium">Horas de Uso:</span> <span id="modal-hours" class="font-bold text-slate-800">--</span></div>
+                            <div class="flex justify-between"><span class="text-slate-500 font-medium">Año / Modelo:</span> <span id="modal-year" class="font-bold text-slate-800">--</span></div>
+                            <div class="flex justify-between"><span class="text-slate-500 font-medium">Tracción:</span> <span id="modal-drive" class="font-bold text-slate-800">4x4</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Inquiry Form -->
+                <div class="bg-slate-100 p-4 rounded-xl border border-slate-200">
+                    <h4 class="font-bold text-slate-900 text-sm mb-2">Solicitar información de esta unidad</h4>
+                    <div class="flex flex-col sm:flex-row gap-2">
+                        <input type="text" id="modal-user-phone" placeholder="Tu teléfono de contacto" class="px-3 py-2 rounded-lg border text-sm flex-1">
+                        <button onclick="sendQuickInquiry()" class="bg-brand-500 hover:bg-brand-600 text-industrial-950 font-bold px-4 py-2 rounded-lg text-sm transition">
+                            Enviar Solicitud
+                        </button>
+                    </div>
+                    <p id="modal-inquiry-msg" class="text-xs text-emerald-700 mt-2 font-medium hidden">¡Solicitud recibida! Un asesor te llamará hoy mismo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Inventory Data
+        const inventory = [
+            {
+                id: 1,
+                title: "John Deere 6155M - 155 HP",
+                category: "tractores",
+                badge: "DISPONIBLE",
+                badgeColor: "bg-emerald-500 text-white",
+                price: "$89,500 USD",
+                hp: "155 HP",
+                hours: "2,400 hrs",
+                year: "2020",
+                drive: "4WD / Doble Tracción",
+                image: "https://images.unsplash.com/photo-1592838064575-70ed626d3a0e?auto=format&fit=crop&w=800&q=80",
+                description: "Tractor John Deere en excelentes condiciones operativas. Transmisión PowerQuad, mantenimiento al día en concesionario oficial."
+            },
+            {
+                id: 2,
+                title: "Case IH Puma 185",
+                category: "tractores",
+                badge: "DISPONIBLE",
+                badgeColor: "bg-emerald-500 text-white",
+                price: "$105,000 USD",
+                hp: "185 HP",
+                hours: "1,850 hrs",
+                year: "2021",
+                drive: "4WD / Suspensión Delantera",
+                image: "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=800&q=80",
+                description: "Equipado con cabina de confort premium, GPS integrado, tres salidas de control remoto hidráulico y neumáticos traseros dobles."
+            },
+            {
+                id: 3,
+                title: "Cosechadora New Holland CR 7.90",
+                category: "cosechadoras",
+                badge: "PRÓXIMAMENTE",
+                badgeColor: "bg-amber-500 text-industrial-950",
+                price: "Consultar Precio",
+                hp: "449 HP",
+                hours: "1,200 hrs",
+                year: "2019",
+                drive: "Rotor Doble Twin Rotor",
+                image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80",
+                description: "Unidad en tránsito hacia nuestro patio. Incluye plataforma de grano de 35 pies. Revisión técnica completa agendada."
+            },
+            {
+                id: 4,
+                title: "Rastra de Discos Pesada 32 Discos",
+                category: "implementos",
+                badge: "DISPONIBLE",
+                badgeColor: "bg-emerald-500 text-white",
+                price: "$14,200 USD",
+                hp: "Requerido 120+ HP",
+                hours: "N/A (Nuevo)",
+                year: "2024",
+                drive: "Tiro Hidráulico",
+                image: "https://images.unsplash.com/photo-1530267981375-f0de937f5f13?auto=format&fit=crop&w=800&q=80",
+                description: "Rastra agrícola reforzada para preparación intensiva de suelos. Discos dentados delanteros y lisos traseros."
+            },
+            {
+                id: 5,
+                title: "Kubota M7060 Cabinado",
+                category: "tractores",
+                badge: "DISPONIBLE",
+                badgeColor: "bg-emerald-500 text-white",
+                price: "$38,900 USD",
+                hp: "71 HP",
+                hours: "980 hrs",
+                year: "2022",
+                drive: "4WD Compacto",
+                image: "https://images.unsplash.com/photo-1592838064575-70ed626d3a0e?auto=format&fit=crop&w=800&q=80",
+                description: "Ideal para labores en frutales, ganadería y espacios reducidos. Incluye cargador frontal Kubota LA1154."
+            },
+            {
+                id: 6,
+                title: "Sembradora de Maíz 8 Surcos",
+                category: "implementos",
+                badge: "PROXIMAMENTE",
+                badgeColor: "bg-amber-500 text-industrial-950",
+                price: "$22,500 USD",
+                hp: "Requerido 90+ HP",
+                hours: "N/A",
+                year: "2023",
+                drive: "Neumática",
+                image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80",
+                description: "Dosificación neumática de precisión con fertilización simultánea y monitoreo de siembra en cabina."
+            }
+        ];
+
+        // Render Inventory Grid
+        function renderInventory(items) {
+            const grid = document.getElementById('equipment-grid');
+            grid.innerHTML = '';
+
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition duration-300 flex flex-col justify-between';
+                card.innerHTML = `
+                    <div>
+                        <div class="relative">
+                            <img src="${item.image}" alt="${item.title}" class="w-full h-52 object-cover">
+                            <span class="absolute top-3 left-3 text-xs font-black px-3 py-1 rounded-md shadow-md uppercase tracking-wider ${item.badgeColor}">
+                                ${item.badge}
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-black text-slate-900 mb-2">${item.title}</h3>
+                            <div class="text-brand-600 font-extrabold text-xl mb-4">${item.price}</div>
+                            
+                            <div class="grid grid-cols-3 gap-2 bg-slate-50 p-3 rounded-xl text-center text-xs text-slate-600 font-medium mb-4">
+                                <div><span class="block font-bold text-slate-900">${item.hp}</span>Potencia</div>
+                                <div><span class="block font-bold text-slate-900">${item.hours}</span>Uso</div>
+                                <div><span class="block font-bold text-slate-900">${item.year}</span>Año</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <button onclick="openModal(${item.id})" class="w-full bg-industrial-900 hover:bg-industrial-800 text-white font-bold py-3 rounded-xl transition text-sm flex items-center justify-center gap-2">
+                            <i class="fas fa-eye"></i> Ver Detalles / Cotizar
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filter Logic
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.className = 'filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs sm:text-sm px-4 py-2 rounded-lg transition';
+                });
+                
+                e.target.className = 'filter-btn bg-industrial-900 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-lg transition';
+                
+                const filter = e.target.getAttribute('data-filter');
+                if (filter === 'all') {
+                    renderInventory(inventory);
+                } else if (filter === 'proximamente') {
+                    renderInventory(inventory.filter(i => i.badge.includes('PRÓXIMAMENTE') || i.badge.includes('PROXIMAMENTE')));
+                } else {
+                    renderInventory(inventory.filter(i => i.category === filter));
+                }
+            });
+        });
+
+        // Modal Logic
+        let activeItem = null;
+
+        function openModal(id) {
+            activeItem = inventory.find(i => i.id === id);
+            if (!activeItem) return;
+
+            document.getElementById('modal-title').innerText = activeItem.title;
+            document.getElementById('modal-price').innerText = activeItem.price;
+            document.getElementById('modal-description').innerText = activeItem.description;
+            document.getElementById('modal-hp').innerText = activeItem.hp;
+            document.getElementById('modal-hours').innerText = activeItem.hours;
+            document.getElementById('modal-year').innerText = activeItem.year;
+            document.getElementById('modal-drive').innerText = activeItem.drive;
+            document.getElementById('modal-image').src = activeItem.image;
+            document.getElementById('modal-badge').innerText = activeItem.badge;
+
+            document.getElementById('modal-inquiry-msg').classList.add('hidden');
+            document.getElementById('modal-user-phone').value = '';
+
+            document.getElementById('equipment-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('equipment-modal').classList.add('hidden');
+        }
+
+        function sendQuickInquiry() {
+            const phone = document.getElementById('modal-user-phone').value;
+            if (phone.trim() === '') {
+                alert('Por favor escribe tu número telefónico.');
+                return;
+            }
+            document.getElementById('modal-inquiry-msg').classList.remove('hidden');
+        }
+
+        // Form Submission
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const successAlert = document.getElementById('form-success');
+            successAlert.classList.remove('hidden');
+            e.target.reset();
+
+            setTimeout(() => {
+                successAlert.classList.add('hidden');
+            }, 6000);
+        }
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Initial Load
+        window.onload = function() {
+            renderInventory(inventory);
+        };
+    </script>
+</body>
+</html>
